@@ -41,8 +41,6 @@ if (isPalindrome(parola.toLowerCase())) {
 
 
 
-
-
 /*
 
 Pari e Dispari
@@ -62,7 +60,20 @@ Dichiariamo chi ha vinto.
 
 */
 
-// chiedo all'utente se sceglie pari o dispari
+document.getElementById("avvio_gioco").addEventListener("click", function(){
+
+
+    // chiedo all'utente se sceglie pari o dispari
+    const pari_dispari = prompt('Scegli, pari o dispari?');
+
+
+
+
+
+
+})
+
+
 
 // con un prompt chiedo all'utente di inserire un numero da 1 a 5
 
