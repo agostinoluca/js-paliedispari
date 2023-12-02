@@ -31,8 +31,8 @@ function isPalindrome(parola) {
 const writeResult = document.querySelector('.palindrome');
 
 
-// con una funzione stabilisco se la parola è palindroma
-if (isPalindrome(parola)) {
+// con una funzione stabilisco se la parola è palindroma (trascurando maiuscole/minuscole)
+if (isPalindrome(parola.toLowerCase())) {
     writeResult.innerHTML = `La parola "<span class="color">${parola}</span>" è palindroma!`;
 } else {
     writeResult.innerHTML = `La parola "<span class="color">${parola}</span>" non è palindroma.`;
@@ -71,3 +71,5 @@ Dichiariamo chi ha vinto.
 // con una funzione sommiamo i numeri e verifichiamo se il numero ottenuto è pari o dispari
 
 // stampo in pagina il vincitore
+
+
