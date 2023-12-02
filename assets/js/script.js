@@ -15,10 +15,28 @@ Creare una funzione per capire se la parola inserita è palindroma
 */ 
 
 // con un prompt chiedo all'utente di inserire una parola
+const parola = prompt('Ciao, inserisci qui una parola, ti dirò se è palindroma!');
 
 // con una fuction chiedo a javascript di verificare se la parola inserita è palindroma
+function isPalindrome(parola) {
 
-// stampo in pagina un messaggio che afferma se la parola è o non è palindroma
+    // trasformo l'input in una stringa, uso il reverse e resituisco il risultato in stringa con join
+    const parolaInvertita = parola.split('').reverse().join('');
+
+    // verifico se il precedente passaggio ha restituito una parola identica all'input
+    return parola === parolaInvertita;
+}
+
+// collego un div del mio html per stampare un messaggio in pagina
+const writeResult = document.querySelector('.palindrome');
+
+
+// con una funzione stabilisco se la parola è palindroma
+if (isPalindrome(parola)) {
+    writeResult.innerHTML = `La parola "<span class="color">${parola}</span>" è palindroma!`;
+} else {
+    writeResult.innerHTML = `La parola "<span class="color">${parola}</span>" non è palindroma.`;
+}
 
 
 

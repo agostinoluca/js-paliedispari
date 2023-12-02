@@ -3,3 +3,15 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    background-color: #ededed;
+}
+
+.palindrome {
+    font-size: 2rem;
+}
+
+.color {
+    color: rgb(11, 15, 230);
+}
