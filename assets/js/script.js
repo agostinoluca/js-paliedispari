@@ -57,30 +57,73 @@ Dichiariamo chi ha vinto.
  -return
  -document.GetElementById/querySelector
  -.innerHtml .innerText .textContent
+ -.addEventListener("click", fuction()){}
+ -&& ||
+ -< >
+ -alert
+ -parseInt
 
 */
 
+// richiamo dalla pagina HTML un bottone e gli applico un event listener
 document.getElementById("avvio_gioco").addEventListener("click", function(){
 
 
     // chiedo all'utente se sceglie pari o dispari
-    const pari_dispari = prompt('Scegli, pari o dispari?');
+    const pariDispari = prompt('Scegli, pari o dispari?').toLowerCase();
+
+    if (pariDispari === "pari" || pariDispari === "dispari" ) {
+
+        // con un prompt chiedo all'utente di inserire un numero da 1 a 5
+        const numeroUtente = parseInt(prompt('Ora scegli un numero da 1 a 5'));
+
+        // se l'utente ha seguito le istruzioni proseguiamo nel gioco
+        if (numeroUtente > 0 && numeroUtente <= 5) {
+            // con una funzione generiamo un numero casuale da 1 a 5 per il computer
+            function numeroCasuale() {
+                return Math.floor(Math.random() * 5) + 1
+            }
+
+            // creiamo la variabile let che raccoglie il return della funzione
+            let numeroComputer = numeroCasuale();
+
+            // con una funzione sommiamo i numeri e verifichiamo se il numero ottenuto è pari o dispari
+            function numeroFinale(numeroUtente, numeroComputer) {
+                
+                // sommiamo i due numeri
+                let somma = numeroUtente + numeroComputer;
+
+                // stabiliamo se il numero è pari o dispari
+                if (somma % 2 === 0 && pariDispari === "pari" || somma % 2 !== 0 && pariDispari === "dispari") {
+                    // se vince l'utente
+                    document.getElementById('vincitore').classList.add('bg_green');
+                    return "Hai vinto!";
+                } else {
+                    // se è un'altra condizione
+                    document.getElementById('vincitore').classList.add('bg_red');
+                    return "Ha vinto il computer!";
+                }
+            }
+            
+            //recuperiamo il risultato della funzione sommatoria
+            let vincitore = numeroFinale(numeroUtente, numeroComputer);
+
+            // stampiamo in pagina i numeri scelti
+            document.getElementById('numeriScelti').innerHTML = (`Hai scelto "${pariDispari}" ed il numero ${numeroUtente},<br>il computer ha scelto il numero ${numeroComputer}.`);
+            document.getElementById('numeriScelti').style.padding = '1rem';
+
+            // stampiamo il vincitore
+            document.getElementById('vincitore').textContent = vincitore;
 
 
+        // se l'utente inserisce un numero maggiore a 5 o minore a 1
+        } else {
+            alert("Scelta non valida.\nPer favore, riavvia il gioco e scegli un numero da 1 a 5")
+        }
 
-
-
-
+    // se l'utente non scrive 'pari' o 'dispari'
+    } else {
+        alert("Scelta non valida.\nPer favore, riavvia il gioco e scegli pari o dispari.");
+    }
 })
-
-
-
-// con un prompt chiedo all'utente di inserire un numero da 1 a 5
-
-// con una funzione generiamo un numero casuale da 1 a 5 per il computer
-
-// con una funzione sommiamo i numeri e verifichiamo se il numero ottenuto è pari o dispari
-
-// stampo in pagina il vincitore
-
 

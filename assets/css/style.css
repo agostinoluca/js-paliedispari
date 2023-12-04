@@ -15,3 +15,27 @@ body {
 .color {
     color: rgb(11, 15, 230);
 }
+
+#avvio_gioco:hover {
+    transform: scale(1.2);
+}
+
+#numeriScelti {
+    font-size: 3rem;
+    background-color: #ededed;
+}
+
+#vincitore {
+    font-size: 5rem;
+    color: white;
+}
+
+.bg_green {
+    background-color: green;
+    padding: 1rem;
+}
+
+.bg_red {
+    background-color: red;
+    padding: 1rem;
+}
