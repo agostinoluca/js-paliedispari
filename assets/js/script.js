@@ -72,6 +72,7 @@ document.getElementById("avvio_gioco").addEventListener("click", function(){
     // chiedo all'utente se sceglie pari o dispari
     const pariDispari = prompt('Scegli, pari o dispari?').toLowerCase();
 
+    // se l'input è corretto procedo con il gioco
     if (pariDispari === "pari" || pariDispari === "dispari" ) {
 
         // con un prompt chiedo all'utente di inserire un numero da 1 a 5
@@ -79,6 +80,7 @@ document.getElementById("avvio_gioco").addEventListener("click", function(){
 
         // se l'utente ha seguito le istruzioni proseguiamo nel gioco
         if (numeroUtente > 0 && numeroUtente <= 5) {
+
             // con una funzione generiamo un numero casuale da 1 a 5 per il computer
             function numeroCasuale() {
                 return Math.floor(Math.random() * 5) + 1
@@ -93,14 +95,19 @@ document.getElementById("avvio_gioco").addEventListener("click", function(){
                 // sommiamo i due numeri
                 let somma = numeroUtente + numeroComputer;
 
-                // stabiliamo se il numero è pari o dispari
-                if (somma % 2 === 0 && pariDispari === "pari" || somma % 2 !== 0 && pariDispari === "dispari") {
-                    // se vince l'utente
+                // stabiliamo le condizioni in cui vince l'utente
+                if ((somma % 2 === 0 && pariDispari === "pari") || (somma % 2 !== 0 && pariDispari === "dispari")) {
+                    // aggiungo una classe con sfondo 'success'
                     document.getElementById('vincitore').classList.add('bg_green');
+                    // rimuovo la classe (utile se l'utente gioca più volte senza aggiornare la pagina del browser)
+                    document.getElementById('vincitore').classList.remove('bg_red');
+                    // restituisco una stringa
                     return "Hai vinto!";
+
                 } else {
-                    // se è un'altra condizione
+                    // se è un'altra condizione, aggiungo una classe con sfondo 'danger'
                     document.getElementById('vincitore').classList.add('bg_red');
+                    // restituisco una stringa
                     return "Ha vinto il computer!";
                 }
             }
