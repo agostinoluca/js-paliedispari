@@ -116,7 +116,7 @@ document.getElementById("avvio_gioco").addEventListener("click", function(){
             let vincitore = numeroFinale(numeroUtente, numeroComputer);
 
             // stampiamo in pagina i numeri scelti
-            document.getElementById('numeriScelti').innerHTML = (`Hai scelto "${pariDispari}" ed il numero ${numeroUtente},<br>il computer ha scelto il numero ${numeroComputer}.`);
+            document.getElementById('numeriScelti').innerHTML = (`Hai scelto "${pariDispari}" ed il numero ${numeroUtente},<br>il computer ha scelto il numero ${numeroComputer}.<strong>Totale: ${numeroComputer + numeroUtente}</strong>`);
             document.getElementById('numeriScelti').style.padding = '1rem';
 
             // stampiamo il vincitore
